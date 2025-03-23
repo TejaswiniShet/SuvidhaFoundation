@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donation Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('images/womenbg.png'); /* Add your background image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    /* Overlay to reduce opacity */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.7); /* Reduce opacity */
+      z-index: -1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 50px 0;
+      font-size: 18px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.6); /* Reduce opacity of table */
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+    }
+    .donation-btn {
+      background-color: #ffc107;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .account-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.6); /* White background with opacity */
+      border-radius: 5px;
+    }
+    .account-details {
+      flex: 1;
+    }
+    .qr-code {
+      flex: 0.5;
+      text-align: center; /* Center the QR code and "Scan to Donate" text */
+    }
+    .qr-code img {
+      max-width: 200px; /* Increased width */
+      max-height: 200px; /* Increased height */
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Campaign Donation Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Campaign</th>
+        <th>Details</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clothes Distribution</td>
+        <td>Supports providing clothes to those in need.</td>
+        <td><button class="donation-btn" onclick="openRazorpay(2000)">₹ 2,000</button></td>
+      </tr>
+      <tr>
+        <td>Food Distribution</td>
+        <td>Provides meals for underprivileged communities.</td>
+        <td><button class="donation-btn" onclick="openRazorpay(5000)">₹ 5,000</button></td>
+      </tr>
+      <tr>
+        <td>Education</td>
+        <td>Funds educational materials and resources.</td>
+        <td><button class="donation-btn" onclick="openRazorpay(10000)">₹ 10,000</button></td>
+      </tr>
+      <tr>
+        <td>Empower Her Future</td>
+        <td>Supports women's empowerment initiatives.</td>
+        <td><button class="donation-btn" onclick="openRazorpay(15000)">₹ 15,000</button></td>
+      </tr>
+      <tr>
+        <td>Health Care</td>
+        <td>Provides medical aid and health check-ups.</td>
+        <td><button class="donation-btn" onclick="openRazorpay(20000)">₹ 20,000</button></td>
+      </tr>
+      <tr>
+        <td>Support a Smile</td>
+        <td>Well-being programs (mental health support, recreation).</td>
+        <td><button class="donation-btn" onclick="openRazorpay(100)">Any Amount</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Account Details and QR Code Section -->
+  <div class="account-section">
+    <div class="account-details">
+      <h3>Account Details for Indian Donors</h3>
+      <p><strong>Bank Name:</strong> Bank Of Baroda</p>
+      <p><strong>City:</strong> Nagpur</p>
+      <p><strong>Contact No:</strong> +91 8010996763</p>
+      <p><strong>Account Name:</strong> Suvidha Mahila Mandal</p>
+      <p><strong>Account No:</strong> 97840100027609</p>
+      <p><strong>IFSC Code:</strong> BARB0DBKPAR</p>
+    </div>
+    <div class="qr-code">
+      <h3>Scan to Donate</h3>
+      <img src="images/qr.png" alt="QR Code">
+    </div>
+  </div>
+
+  <!-- Include Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="scripts/razorpay.js"></script>
+
+</body>
+</html>
